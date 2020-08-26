@@ -14,7 +14,7 @@ public class CustomWebMvcTagsProvider extends DefaultWebMvcTagsProvider {
         String degradeLevelKey = "degrade_level";
         String degradeLevelVal = request.getHeader("degrade_level");
         if (degradeLevelVal == null){
-            degradeLevelVal = "-1";
+            degradeLevelVal = "0";
         }
         tags = tags.and(degradeLevelKey, degradeLevelVal);
         return tags;
@@ -26,7 +26,7 @@ public class CustomWebMvcTagsProvider extends DefaultWebMvcTagsProvider {
         String degradeLevelKey = "degrade_level";
         String degradeLevelVal = request.getHeader("degrade_level");
         if (degradeLevelVal == null){
-            degradeLevelVal = "-1";
+            degradeLevelVal = "0";
         }
         tags = tags.and(degradeLevelKey, degradeLevelVal);
         return tags;
