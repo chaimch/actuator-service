@@ -18,6 +18,17 @@
 		<java.version>11</java.version>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>spring-micrometer-metric-grouping-mvn-repo</id>
+			<url>https://raw.github.com/sumeetmondal/spring-micrometer-metric-grouping/mvn-repo/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
