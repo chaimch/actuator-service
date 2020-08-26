@@ -11,11 +11,24 @@ public class CustomWebMvcTagsProvider extends DefaultWebMvcTagsProvider {
     @Override
     public Iterable<Tag> getTags(HttpServletRequest request, HttpServletResponse response, Object handler, Throwable exception) {
         Tags tags = (Tags) super.getTags(request, response, handler, exception);
+        String degradeLevelKey = "degrade_level";
+        String degradeLevelVal = request.getHeader("degrade_level");
+        if (degradeLevelVal == null){
+            degradeLevelVal = "-1";
+        }
+        tags = tags.and(degradeLevelKey, degradeLevelVal);
         return tags;
     }
 
     @Override
     public Iterable<Tag> getLongRequestTags(HttpServletRequest request, Object handler) {
-        return super.getLongRequestTags(request, handler);
+        Tags tags = (Tags) super.getLongRequestTags(request, handler);
+        String degradeLevelKey = "degrade_level";
+        String degradeLevelVal = request.getHeader("degrade_level");
+        if (degradeLevelVal == null){
+            degradeLevelVal = "-1";
+        }
+        tags = tags.and(degradeLevelKey, degradeLevelVal);
+        return tags;
     }
 }
